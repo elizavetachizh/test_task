@@ -20,3 +20,13 @@ for (let i = 1; i < a; i++) {
   }
 }
 console.log(arr.join());
+
+function MyArea(myRadius) {
+  let area = Math.pow(myRadius, 2) * Math.PI;
+
+  console.log("radius: " + myRadius + " area: " + area);
+}
+
+let myRadius = parseFloat(prompt("Enter the radius of your circle in cm:", 0));
+
+MyArea(myRadius);
