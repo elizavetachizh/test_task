@@ -15,8 +15,6 @@ for (let i = 1; i < a; i++) {
     arr[i - 1] = "five";
   } else if (i % 3 === 0 && i % 5 === 0) {
     arr[i - 1] = "threefive";
-  } else {
-    console.log(i);
   }
 }
 console.log(arr.join());
@@ -27,6 +25,32 @@ function MyArea(myRadius) {
   console.log("radius: " + myRadius + " area: " + area);
 }
 
-let myRadius = parseFloat(prompt("Enter the radius of your circle in cm:", 0));
+let myRadius = Math.round(Math.random() * 101) + 1;
 
 MyArea(myRadius);
+
+function isValid(str) {
+  let arr = [];
+  const brackets = {
+    "}": "{",
+    ")": "(",
+    "]": "[",
+  };
+  for (let i = 0; i < str.length; i++) {
+    const current = str[i];
+    if (isClosedBrackets(current)) {
+      if (brackets[current] != arr.pop()) {
+        return false;
+      }
+    } else {
+      arr.push(current);
+    }
+  }
+  return arr.length === 0;
+}
+
+function isClosedBrackets(char) {
+  return ["}", ")", "]"].indexOf(char) > -1;
+}
+
+console.log(isValid("{([])}"));
